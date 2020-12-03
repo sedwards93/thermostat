@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thermostat</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
   <h1 id='temperature'></h1>
@@ -16,58 +18,7 @@
     Power Saving: <span id="power-saving-status">On</span>
   </p>
   <script src="src/thermostat.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-
-    $(document).ready(function(){
-      $('#power-saving-on').hide();
-
-      var thermostat = new Thermostat();
-      updateTemperature()
-    
-      $('#down').click(function() { 
-        thermostat.down();
-        updateTemperature()
-      })
-
-      $('#up').click(function() {
-        thermostat.up();
-        updateTemperature()
-      })
-
-      $('#reset').click(function() {
-        thermostat.resetTemperature();
-        updateTemperature()
-      })
-
-      $('#power-saving-on').click(function() {
-        thermostat.togglePowerSavingOn();
-        $('#power-saving-status').text('On')
-        updateTemperature();
-        $('#power-saving-on').hide();
-        $('#power-saving-off').show();
-      })
-
-      $('#power-saving-off').click(function() {
-        thermostat.togglePowerSavingOff();
-        $('#power-saving-status').text('Off')
-        updateTemperature();
-        $('#power-saving-off').hide();
-        $('#power-saving-on').show();
-      })
-      
-      function updateTemperature() {
-        $('#temperature').text(thermostat.temperature);
-      }
-
-    })
-
-    
-
-  </script>
-
-
-
+  <script type="text/javascript" src="src/interface.js"></script>
 </body>
 </html>
 
